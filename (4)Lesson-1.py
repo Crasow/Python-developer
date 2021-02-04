@@ -1,6 +1,6 @@
 number = input('Введи число: ')
-result = 1
+result = 0
 for i in number:
     if int(i) > int(result):
         result = i
-print( f'Наибольшее число: {result}')
+print(f'Наибольшее число: {result}')
