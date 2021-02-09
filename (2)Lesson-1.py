@@ -1,5 +1,0 @@
-user_time = int(input('Введи время в секундах:\n'))
-hours = int(user_time / 3600)
-minutes = int((user_time / 60) - hours * 60)
-seconds = int(user_time - int(user_time / 60) * 60)
-print(f'{hours:02d}:{minutes:02d}:{seconds:02d}')
