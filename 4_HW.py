@@ -1,14 +1,10 @@
-x = 5
-y = -3
+user_str = input('Введи строку: ')
+my_list = user_str.split()
+word_num = 0
+for el in my_list:
+    word_num += 1
+    if len(el) < 10:
+        print(f'{word_num}. {el}')
+    else:
+        print(f'{word_num}. {el[:10]}')
 
-
-def my_func(x, y):
-    result = 1                      # для дальнейшого умножения
-    while y != 0:                 # умножается столько раз само на себя столько,
-        result = result * x    # сколько 1 можно прибавить к y до того, как y станет 0
-        y += 1
-    result = 1 / result         # финальный штрих
-    print(result)
-
-
-my_func(x, y)

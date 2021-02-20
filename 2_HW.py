@@ -1,13 +1,16 @@
-name = input('Имя: ')
-surname = input('Фамилия: ')
-born_year = input('Год рождения: ')
-city = input('Город проживания:')
-email = input('Твой email: ')
-phone = input('Номер телефона:')
+my_list = []
+list_el = 0
+el_count = 0
+while list_el != 'stop':
+    list_el = (input("Введите следующее значение списка (напишите stop для остановки ввода): "))
+    if list_el != 'stop':
+        my_list.append(list_el)
 
+counter = len(my_list)
+print(my_list)
 
-def user(el1, el2, el3, el4, el5, el6):
-    print(name, surname, born_year, city, email, phone)
+for el in range(int(len(my_list)/2)):
+    my_list[el_count], my_list[el_count + 1] = my_list[el_count + 1], my_list[el_count]
+    el_count += 2
 
-
-user(el1=name, el2=surname, el3=born_year, el4=city, el5=email, el6=phone)
+print(my_list)

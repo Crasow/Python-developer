@@ -1,12 +1,3 @@
-x = int(input('Первое число: '))
-y = int(input('Второе число: '))
-
-
-def division(x, y):
-    if y == 0:
-        return '(-∞ ; +∞)'
-    else:
-        return x / y
-
-
-print(division(x, y))
+my_list = [True, 'Hello World', 123, False, 2.55, ]
+for el in my_list:
+    print(type(el))
