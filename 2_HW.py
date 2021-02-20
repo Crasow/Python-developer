@@ -1,16 +1,4 @@
-my_list = []
-list_el = 0
-el_count = 0
-while list_el != 'stop':
-    list_el = (input("Введите следующее значение списка (напишите stop для остановки ввода): "))
-    if list_el != 'stop':
-        my_list.append(list_el)
-
-counter = len(my_list)
-print(my_list)
-
-for el in range(int(len(my_list)/2)):
-    my_list[el_count], my_list[el_count + 1] = my_list[el_count + 1], my_list[el_count]
-    el_count += 2
-
-print(my_list)
+list1 = [15, 2, 3, 1, 7, 5, 4, 10]
+list2 = [el for num, el in enumerate(list1) if list1[num - 1] < list1[num]]
+print(f'Исходный список {list1}')
+print(f'Новый список {list2}')
