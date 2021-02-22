@@ -1,20 +1,18 @@
-goods_num = int(input('Введите кол-во товаров: '))
-goods_list = []
-names = []
-prices = []
-qty = []
-unit = []
-n = 1
-while goods_num >= n:
-    goods_dict = {'Название': input('Название'), 'цена': input('цена'), 'кол-во': input('кол-во'), 'ед': input('ед')}
-    names.append(goods_dict.get('Название'))
-    prices.append(goods_dict.get('цена'))
-    qty.append(goods_dict.get('кол-во'))
-    unit.append(goods_dict.get('ед'))
-    goods_tuple = (n, goods_dict)
-    goods_list.append(goods_tuple)
-    n += 1
+from codecs import open
 
-print(goods_list)
-analytics = {'название': names, 'цена': prices, 'кол-во': qty, 'ед': unit}
-print(f'Аналитика: {analytics}')
+result_dict = {}
+with open('txt_for_6.txt', encoding='utf-8') as file:
+    for line in file:
+        line = line.split()
+        print(line)
+        subject = line[0]
+        lec, pr, lab = 0, 0, 0
+        for el in line:
+            if '(л)' in el:
+                lec = int(el[:-3])
+            elif '(пр)' in el:
+                pr = int(el[:-4])
+            elif '(лаб)' in el:
+                lab = int(el[:-5])
+            result_dict[subject] = lec + pr + lab
+    print(result_dict)

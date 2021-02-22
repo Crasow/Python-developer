@@ -1,16 +1,9 @@
-my_list = []
-list_el = 0
-el_count = 0
-while list_el != 'stop':
-    list_el = (input("Введите следующее значение списка (напишите stop для остановки ввода): "))
-    if list_el != 'stop':
-        my_list.append(list_el)
-
-counter = len(my_list)
-print(my_list)
-
-for el in range(int(len(my_list)/2)):
-    my_list[el_count], my_list[el_count + 1] = my_list[el_count + 1], my_list[el_count]
-    el_count += 2
-
-print(my_list)
+with open('txt_for_2.txt') as file:
+    line_count = 0
+    file.seek(0)
+    file_lines = file.readlines()
+    print(f'Кол-во строк: {len(file_lines)}')
+    for num, line in enumerate(file_lines):
+        line_count += 1
+        line_list = line.split()
+        print(f'В {line_count}-ой строке {len(line_list)} слов')
