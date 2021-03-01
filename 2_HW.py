@@ -1,9 +1,11 @@
-with open('txt_for_2.txt') as file:
-    line_count = 0
-    file.seek(0)
-    file_lines = file.readlines()
-    print(f'Кол-во строк: {len(file_lines)}')
-    for num, line in enumerate(file_lines):
-        line_count += 1
-        line_list = line.split()
-        print(f'В {line_count}-ой строке {len(line_list)} слов')
+class Road:
+    def __init__(self, _length, _width):
+        self._length = _length
+        self._width = _width
+
+    def mass_count(self, mass_for_m, thickness):
+        return self._length * self._width * mass_for_m * thickness
+
+
+road = Road(2, 2)
+print(road.mass_count(4, 5))

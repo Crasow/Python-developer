@@ -1,6 +1,19 @@
-with open('txt_for_1.txt', 'w') as user_file:
-    user_line = []
-    while user_line != ['\n']:
-        user_line = [input('Введи строку, для окончания - пустая строка: ')]
-        user_line[0] += '\n'
-        user_file.writelines(user_line)
+from time import sleep
+
+
+class TrafficLight:
+    __color = ['Красный', 'Желтый', 'Зеленый']
+
+    def running(self):
+        for color in TrafficLight.__color:
+            print(f'Цвет светофора сейчас {color}')
+            if color == TrafficLight.__color[0]:
+                sleep(7)
+            elif color == TrafficLight.__color[1]:
+                sleep(2)
+            elif color == TrafficLight.__color[2]:
+                sleep(4)
+
+
+light = TrafficLight()
+light.running()

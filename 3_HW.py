@@ -1,16 +1,25 @@
-with open('txt_for_3.txt') as file:
-    file_lines = file.readlines()
-    salary_sum = 0
-    losers = []
-    for line in file_lines:
-        file_split = line.split()
-        if int(file_split[1]) < 20000:
-            losers.append(file_split[0])
-        salary_sum += int(file_split[1])
-    for loser in losers:
-        if loser == losers[-1]:
-            print(f'{loser}', end=' ')
-        else:
-            print(f'{loser}', end=', ')
-    print('имеют оклад менее 20к')
-    print(f'Средняя зарплата в корпорации: {int(salary_sum/len(file_lines))} гривень')
+income_dict = {"wage": 5000, "bonus": 1500}
+
+
+class Worker:
+    def __init__(self, name, surname, position, wage, bonus):
+        self.name = name
+        self.surname = surname
+        self.position = position
+        self._income = {"wage": wage, "bonus": bonus}
+
+
+class Position(Worker):
+    def get_full_name(self):
+        full_name = self.name + ' ' + self.surname
+        return full_name
+
+    def get_total_income(self):
+        total_income = self._income.get('wage') + self._income.get('bonus')
+        return total_income
+
+
+a = Position('Ilya', 'Getter', 'manager', 5000, 1500)
+print(a.get_full_name())
+print(a.get_total_income())
+# print(a.position)
