@@ -22,4 +22,3 @@ class Position(Worker):
 a = Position('Ilya', 'Getter', 'manager', 5000, 1500)
 print(a.get_full_name())
 print(a.get_total_income())
-# print(a.position)
