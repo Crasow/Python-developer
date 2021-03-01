@@ -1,35 +1,25 @@
-class Cell:
-    def __init__(self, quantity):
-        self.quantity = int(quantity)
-
-    def __str__(self):
-        return f'Результат операции {self.quantity * "*"}'
-
-    def __add__(self, other):
-        return Cell(self.quantity + other.quantity)
-
-    def __sub__(self, other):
-        return self.quantity - other.quantity if (self.quantity - other.quantity) > 0 else print('Отрицательно!')
-
-    def __mul__(self, other):
-        return Cell(int(self.quantity * other.quantity))
-
-    def __truediv__(self, other):
-        return Cell(round(self.quantity // other.quantity))
-
-    def make_order(self, cells_in_row):
-        row = ''
-        for i in range(int(self.quantity / cells_in_row)):
-            row += f'{"*" * cells_in_row} \\n'
-        row += f'{"*" * (self.quantity % cells_in_row)}'
-        return row
+income_dict = {"wage": 5000, "bonus": 1500}
 
 
-cell1 = Cell(33)
-cell2 = Cell(9)
-print(cell1)
-print(cell1 + cell2)
-print(cell2 - cell1)
-print(cell2.make_order(5))
-print(cell1.make_order(10))
-print(cell1 / cell2)
+class Worker:
+    def __init__(self, name, surname, position, wage, bonus):
+        self.name = name
+        self.surname = surname
+        self.position = position
+        self._income = {"wage": wage, "bonus": bonus}
+
+
+class Position(Worker):
+    def get_full_name(self):
+        full_name = self.name + ' ' + self.surname
+        return full_name
+
+    def get_total_income(self):
+        total_income = self._income.get('wage') + self._income.get('bonus')
+        return total_income
+
+
+a = Position('Ilya', 'Getter', 'manager', 5000, 1500)
+print(a.get_full_name())
+print(a.get_total_income())
+# print(a.position)
