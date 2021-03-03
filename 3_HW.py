@@ -1,24 +1,28 @@
-income_dict = {"wage": 5000, "bonus": 1500}
+class Error:
+    def __init__(self, *args):
+        self.my_list = []
+
+    def my_input(self):
+
+        # self.my_list = [int(i) for i in input('Введите значения через пробел ').split()]
+        # val = int(input('Введите значения и нажимайте Enter - '))
+        # self.my_list.append(val)
+        while True:
+            try:
+                val = int(input('Введите значения и нажимайте Enter - '))
+                self.my_list.append(val)
+                print(f'Текущий список - {self.my_list} \n ')
+            except:
+                print(f"Недопустимое значение - строка и булево")
+                y_or_n = input(f'Попробовать еще раз? Y/N ')
+
+                if y_or_n == 'Y' or y_or_n == 'y':
+                    print(try_except.my_input())
+                elif y_or_n == 'N' or y_or_n == 'n':
+                    return f'Вы вышли'
+                else:
+                    return f'Вы вышли'
 
 
-class Worker:
-    def __init__(self, name, surname, position, wage, bonus):
-        self.name = name
-        self.surname = surname
-        self.position = position
-        self._income = {"wage": wage, "bonus": bonus}
-
-
-class Position(Worker):
-    def get_full_name(self):
-        full_name = self.name + ' ' + self.surname
-        return full_name
-
-    def get_total_income(self):
-        total_income = self._income.get('wage') + self._income.get('bonus')
-        return total_income
-
-
-a = Position('Ilya', 'Getter', 'manager', 5000, 1500)
-print(a.get_full_name())
-print(a.get_total_income())
+try_except = Error(1)
+print(try_except.my_input())

@@ -1,11 +1,17 @@
-class Road:
-    def __init__(self, _length, _width):
-        self._length = _length
-        self._width = _width
+class DivisionByNull:
+    def __init__(self, divider, denominator):
+        self.divider = divider
+        self.denominator = denominator
 
-    def mass_count(self, mass_for_m, thickness):
-        return self._length * self._width * mass_for_m * thickness
+    @staticmethod
+    def divide_by_null(divider, denominator):
+        try:
+            return (divider / denominator)
+        except:
+            return (f"Деление на ноль недопустимо")
 
 
-road = Road(2, 2)
-print(road.mass_count(4, 5))
+div = DivisionByNull(10, 100)
+print(DivisionByNull.divide_by_null(10, 0))
+print(DivisionByNull.divide_by_null(10, 0.1))
+print(div.divide_by_null(100, 0))
